@@ -42,7 +42,7 @@ const questions = [
         type: "input"
     },
     {
-        name: "questions",
+        name: "contact",
         message: "Would you like to contact us?",
         type: "input"
     },
@@ -57,7 +57,12 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+    inquirer.prompt(questions)
+    .then(function({title,description,installation,usage,licenses,contributing,test,contact }){
+    console.log(title)
+    })
+ }
 
 // Function call to initialize app
 init();
