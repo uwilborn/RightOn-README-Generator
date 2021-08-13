@@ -46,15 +46,16 @@ const questions = [
         message: "Enter email address?",
         type: "input"
     },
+    {
+        name: "github",
+        message: "What is the Github username?",
+        type: "input"
+    },
 ];
 
 
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile('log.txt', process.argv[2](err))
-    err ? console.error(err) : console.log('Success!')
-}
+
 
 // TODO: Create a function to initialize app
 function init() {
@@ -68,24 +69,31 @@ function init() {
 --------------------
 * [Description](#description)
 * [License](#licence)
-* [Developer] (#developer)
-* [Tests] (#tests)
-* [Contact] (#contact)
+* [Developer](#developer)
+* [Github](#github)
+* [Tests](#tests)
+* [Contact](#contact)
 
 
-### DEscription
+### Description
 ${response.description}
 
 ### License
 ${response.licenses}
+![Github Lincense](https://img.shields.io/badge/license-${response.licenses}-blue.svg)
 
 ### Developer
 ${response.contributing}
+
+
+### Github
+Check developer porifle: https://github.com/${response.github}
 
 ### Test
 ${response.test}
 
 ### Contact
+If you have any questions please email me at:
 ${response.contact}`
 
             console.log(READMEContent);
