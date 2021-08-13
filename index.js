@@ -29,7 +29,7 @@ const questions = [
         name: "licenses",
         message: "Does your app have a license?",
         type: "list",
-        choices:["MIT","ISC","APACHE","GIT","None"]
+        choices: ["MIT", "ISC", "APACHE", "GIT", "None"]
     },
     {
         name: "contributing",
@@ -51,17 +51,17 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { 
-    fs.writeFile('log.txt',process.argv[2] (err))
-    err ? console.error (err) : console.log('Success!')
+function writeToFile(fileName, data) {
+    fs.writeFile('log.txt', process.argv[2](err))
+    err ? console.error(err) : console.log('Success!')
 }
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(function(response){
-    console.log(response)
-    var READMEContent = `
+        .then(function (response) {
+            console.log(response)
+            var READMEContent = `
 #${response.title}
 -----------------
 ## Table of Contents
@@ -88,9 +88,13 @@ ${response.test}
 ### Contact
 ${response.contact}`
 
-console.log(READMEContent);
-    })
- }
+            console.log(READMEContent);
+
+            fs.writeFile('README.md', READMEContent, function (err, message) {
+                console.log('file generated');
+            })
+        })
+}
 
 // Function call to initialize app
 init();
