@@ -43,7 +43,7 @@ const questions = [
     },
     {
         name: "contact",
-        message: "Would you like to contact us?",
+        message: "Enter email address?",
         type: "input"
     },
 ];
@@ -59,8 +59,36 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(function({title,description,installation,usage,licenses,contributing,test,contact }){
-    console.log(title)
+    .then(function(response){
+    console.log(response)
+    var READMEContent = `
+#${response.title}
+-----------------
+## Table of Contents
+--------------------
+* [Description](#description)
+* [License](#licence)
+* [Developer] (#developer)
+* [Tests] (#tests)
+* [Contact] (#contact)
+
+
+### DEscription
+${response.description}
+
+### License
+${response.licenses}
+
+### Developer
+${response.contributing}
+
+### Test
+${response.test}
+
+### Contact
+${response.contact}`
+
+console.log(READMEContent);
     })
  }
 
